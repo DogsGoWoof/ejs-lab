@@ -12,7 +12,11 @@
     <h1><%= capitalCategory %></h1>
     <ul>
         <% menuItems.forEach((item) => { %>
-            <li> <span style="text-decoration: underline;"><strong><%= item.name %></strong></span> | $<%= item.price %> <span style="float: right;">Rating: <%= item.rating %></span> <br><span style="padding: 5%  0 5% 0; margin-right: 10%;"><em><%= item.details %></em></span></li>
+            <% if (item.rating === 5) { %>
+                <li><span style="text-decoration: underline;"><strong><%= item.name %></strong></span> | $<%= item.price %> ⭐<span style="float: right;">Rating: <%= item.rating %></span> <br><span style="padding: 5%  0 5% 0; margin-right: 10%;"><em><%= item.details %></em></span></li>
+            <% } else { %>
+                <li><span style="text-decoration: underline;"><strong><%= item.name %></strong></span> | $<%= item.price %> <span style="float: right;">Rating: <%= item.rating %></span> <br><span style="padding: 5%  0 5% 0; margin-right: 10%;"><em><%= item.details %></em></span></li>
+            <% } %>
         <% }); %>
     </ul>
 </body>
